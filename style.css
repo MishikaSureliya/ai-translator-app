@@ -1,18 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 html,
-body {
+body,
+[class*="css"] {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Remove unwanted empty layout blocks */
-section.main>div:first-child {
+/* Background gradient for the entire app */
+.stApp {
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+/* Hide Streamlit Header gracefully */
+header[data-testid="stHeader"] {
     display: none !important;
 }
 
-/* Background */
-.stApp {
-    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+/* 
+ * The Root Cause of the Oval Box Fix:
+ * Instead of injecting unclosed fragmented <div class="card"> tags in Streamlit, 
+ * we style Streamlit's native .block-container directly to act as the gorgeous 
+ * frosted glass card. Streamlit controls this container natively perfectly!
+ */
+.block-container {
+    padding: 40px 40px !important;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.90);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Hide empty Streamlit structural artifacts securely */
+.element-container:empty,
+.stMarkdown:empty {
+    display: none !important;
 }
 
 /* Title */
@@ -23,30 +46,41 @@ section.main>div:first-child {
     background: linear-gradient(45deg, #4A00E0, #8E2DE2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 /* Subtitle */
 .subtitle {
     text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    color: #4A00E0;
+    font-weight: 600;
 }
 
-/* Card */
-.card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Textarea */
+/* Clean Input/Output Layout Elements */
 .stTextArea textarea {
     border-radius: 12px;
+    border: 2px solid #d1d9e6;
+    padding: 15px;
+    font-size: 1.15rem;
+    color: #2c3e50;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
-/* Output Box */
+.stTextArea textarea:focus {
+    border-color: #8E2DE2;
+    box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.2);
+}
+
+.stSelectbox div[data-baseweb="select"] {
+    border-radius: 12px;
+    border: 2px solid #d1d9e6;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Dynamic Output Box */
 .output {
     background: white;
     padding: 20px;
@@ -54,27 +88,49 @@ section.main>div:first-child {
     min-height: 250px;
     border-top: 5px solid #8E2DE2;
     white-space: pre-wrap;
-    font-size: 1.15rem;
+    font-size: 1.20rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    color: #2c3e50;
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    margin-top: 40px;
-}
-
-/* Primary Button */
+/* Primary Translation Button */
 .stButton>button[kind="primary"] {
     background: linear-gradient(45deg, #4A00E0, #8E2DE2);
     color: white;
     border: none;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 6px 15px rgba(74, 0, 224, 0.3);
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 0.8rem;
+    border-radius: 25px;
 }
 
 .stButton>button[kind="primary"]:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(74, 0, 224, 0.4);
+}
+
+/* Secondary Action Buttons */
+.stButton>button[kind="secondary"] {
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    padding: 0.8rem;
+    transition: transform 0.2s;
+}
+
+.stButton>button[kind="secondary"]:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer Typography */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #718096;
 }
 
 /* ----------------------------------------------------- */
