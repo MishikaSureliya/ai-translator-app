@@ -13,12 +13,11 @@ st.set_page_config(
 def load_css():
     """Securely injects custom CSS."""
     if os.path.exists("style.css"):
-        with open("style.css") as f:
+        with open("style.css", encoding="utf-8") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 def show_intro_screen():
     """Displays the beautiful animated intro screen."""
-    # We use a container to apply the CSS specifically to the intro wrapper
     st.markdown(
         """
         <div class="intro-container">
@@ -54,16 +53,8 @@ def main():
         return # Halt main execution until intro finishes
     
     # ---------------------------------------------------------
-    # 4. MAIN APPLICATION UI (Renders AFTER the Intro completes)
+    # 4. MAIN APPLICATION UI 
     # ---------------------------------------------------------
-
-    # Remove default Streamlit spacing cleanly for the main app
-    st.markdown("""
-        <style>
-        .block-container {padding-top: 1rem !important;}
-        header {visibility: hidden;}
-        </style>
-    """, unsafe_allow_html=True)
 
     # Header and Subtitle 
     st.markdown('<div class="title">🌍 AI-Powered Multi-Language Translator</div>', unsafe_allow_html=True)
@@ -80,11 +71,8 @@ def main():
     if "result" not in st.session_state:
         st.session_state.result = "Translation will appear here..."
 
-    # App Wrapper
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-
-    # Use Streamlit's Native Column Grid Layout
-    col1, col2 = st.columns(2)
+    # Use Streamlit's Native Column Grid Layout - No Broken HTML Containers!
+    col1, padding, col2 = st.columns([10, 1, 10])
 
     with col1:
         st.markdown("### 📝 Source Text")
@@ -131,8 +119,6 @@ def main():
 
         # Render Output Block cleanly mapped to CSS class
         st.markdown(f'<div class="output">{st.session_state.result}</div>', unsafe_allow_html=True)
-
-    st.markdown("</div>", unsafe_allow_html=True) # End Card
 
     # Unbroken Footer
     st.markdown('<div class="footer">Built with ❤️ using Streamlit & NLP</div>', unsafe_allow_html=True)
