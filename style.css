@@ -1,0 +1,144 @@
+/* Global Font & Background Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Streamlit top padding adjustment */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1200px;
+}
+
+/* Elegant Light Gradient Background for the App */
+.stApp {
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #2c3e50;
+}
+
+/* Centered Header & Gradient Text */
+h1 {
+    text-align: center;
+    background: -webkit-linear-gradient(45deg, #4A00E0, #8E2DE2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 3rem !important;
+    margin-bottom: -15px;
+    padding-top: 10px;
+}
+
+/* Subtitle Styling */
+.subtitle {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #34495e;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Main Container Card */
+.main-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Input & Output Area Styling */
+.stTextArea textarea {
+    background-color: #ffffff;
+    border: 2px solid #d1d9e6;
+    color: #2c3e50;
+    border-radius: 15px;
+    font-size: 1.15rem;
+    padding: 15px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.stTextArea textarea:focus {
+    border-color: #8E2DE2;
+    box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.2);
+}
+
+/* Stylish Dropdown */
+.stSelectbox div[data-baseweb="select"] {
+    background-color: #ffffff;
+    border: 2px solid #d1d9e6;
+    border-radius: 12px;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+/* Output Result Box */
+.translation-output {
+    background-color: #ffffff;
+    border: 2px solid #e0e6ed;
+    color: #2c3e50;
+    border-radius: 15px;
+    font-size: 1.25rem;
+    padding: 20px;
+    min-height: 250px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    /* Requested shadow */
+    border-top: 5px solid #8E2DE2;
+    white-space: pre-wrap;
+}
+
+/* Attractive Primary Button */
+.stButton>button[kind="primary"] {
+    width: 100%;
+    background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 25px;
+    /* Pill Shape */
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 15px rgba(74, 0, 224, 0.3);
+}
+
+.stButton>button[kind="primary"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(74, 0, 224, 0.4);
+}
+
+/* Secondary (Clear) Button */
+.stButton>button[kind="secondary"] {
+    width: 100%;
+    background: #f1f2f6;
+    color: #2f3542;
+    border: 2px solid #d1d8e0;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.2s;
+}
+
+.stButton>button[kind="secondary"]:hover {
+    background: #dfe4ea;
+    border-color: #ced6e0;
+    transform: translateY(-2px);
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+    font-weight: 500;
+}
