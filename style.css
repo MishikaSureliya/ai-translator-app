@@ -124,6 +124,51 @@ header[data-testid="stHeader"] {
     transform: translateY(-2px);
 }
 
+/* Microphone Button Styling */
+.mic-button {
+    background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 0, 224, 0.3);
+    margin-top: 10px;
+    width: 100%;
+}
+
+.mic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 0, 224, 0.4);
+}
+
+.mic-button.listening {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    animation: pulse 1.5s infinite;
+}
+
+.mic-button:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(231, 76, 60, 0.8);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+    }
+}
+
 /* Footer Typography */
 .footer {
     text-align: center;
