@@ -2,4 +2,3 @@ streamlit
 deep-translator==1.11.4
 SpeechRecognition
 audio-recorder-streamlit
-pyaudio
